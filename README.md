@@ -42,6 +42,6 @@ pytest
 
 ## 6. 작성자 정보
 
-- 이름: (이름을 입력하세요)
-- 학번: (학번을 입력하세요)
-- 이메일: jesshan0214@gmail.com
+- 이름: 김한결(KIM HANGYUL)
+- 학번: 202620855
+- 이메일: jesshan0214@naver.com
