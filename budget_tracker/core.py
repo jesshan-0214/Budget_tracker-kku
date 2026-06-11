@@ -25,6 +25,7 @@ class Transaction:
         :param amount: 0보다 큰 거래 금액
         :param description: 거래 내용 설명
         """
+        # 검증을 통과한 값만 속성에 저장된다 (잘못된 값은 여기서 차단)
         self.date = self._validate_date(date)
         self.amount = self._validate_amount(amount)
         self.description = description
@@ -35,6 +36,7 @@ class Transaction:
         :param amount: 검사할 금액
         :return: 검증을 통과한 금액
         """
+        # 타입이 잘못되면 TypeError, 값이 잘못되면 ValueError로 구분
         if not isinstance(amount, (int, float)):
             raise TypeError("금액은 숫자여야 합니다.")
         if amount <= 0:
@@ -70,5 +72,6 @@ class Transaction:
         >>> Transaction("2026-06-11", 9000, "점심").month()
         '2026-06'
         """
+        # 'YYYY-MM-DD'에서 연·월 부분만 다시 이어 붙인다
         parts = self.date.split("-")
         return f"{parts[0]}-{parts[1]}"
