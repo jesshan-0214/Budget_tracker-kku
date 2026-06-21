@@ -14,6 +14,8 @@ GitHub 저장소: <https://github.com/jesshan-0214/Budget_tracker-kku>
 
 ## 2. 설치 방법
 
+### macOS / Linux
+
 ```bash
 git clone https://github.com/jesshan-0214/Budget_tracker-kku.git
 cd Budget_tracker-kku
@@ -22,7 +24,41 @@ source .venv/bin/activate
 pip install .
 ```
 
+### Windows (PowerShell)
+
+```powershell
+git clone https://github.com/jesshan-0214/Budget_tracker-kku.git
+cd Budget_tracker-kku
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install .
+```
+
 ## 3. 빠른 시작 (Quick Start)
+
+먼저 터미널에 `python`(Windows는 `python`, macOS/Linux는 `python3`)을
+입력해 대화형 인터프리터를 실행하면 `>>>` 프롬프트가 나타납니다.
+이 프롬프트에 아래 코드를 입력합니다. (끝낼 때는 `exit()` 입력)
+
+```python
+>>> from budget_tracker import Expense, Income, Ledger
+>>> ledger = Ledger()
+>>> ledger.add(Income("2026-06-01", 300000, "6월 용돈", "부모님"))
+>>> ledger.add(Expense("2026-06-02", 50000, "장보기", "식비"))
+>>> ledger.add(Expense("2026-06-03", 1500, "버스", "교통"))
+>>> ledger.balance()
+248500
+>>> ledger.totals_by_category()
+{'식비': 50000, '교통': 1500}
+>>> print(ledger.monthly_report("2026-06"))
+[2026-06] 수입 300,000원 | 지출 51,500원 | 잔액 248,500원
+```
+
+또는 위 코드를 `example.py` 같은 파일로 저장한 뒤
+`python example.py`로 한 번에 실행할 수도 있습니다.
+
+<details>
+<summary>참고: 파일로 실행할 때의 전체 코드</summary>
 
 ```python
 from budget_tracker import Expense, Income, Ledger
@@ -37,6 +73,8 @@ print(ledger.totals_by_category())      # {'식비': 50000, '교통': 1500}
 print(ledger.monthly_report("2026-06"))
 # [2026-06] 수입 300,000원 | 지출 51,500원 | 잔액 248,500원
 ```
+
+</details>
 
 ## 4. 주요 기능
 
